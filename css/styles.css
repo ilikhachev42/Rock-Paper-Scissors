@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'Silver';
+	src: local('Silver'), url('../fonts/Silver.ttf'), format('truetype');
+}
+
+:root {
+	--color: rgb(50, 255, 0);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background: black;
+	font-family: 'Silver', 'Press Start 2P';
+}
+
+.container {
+	display: flex;
+	flex-flow: column;
+	width: 40%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+h1 {
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	color: var(--color);
+	font-size: 70px;
+}
+
+.window {
+	border: 3px solid var(--color);
+}
+
+.info {
+	height: 40vw;
+}
+
+.choice {
+	display: flex;
+	flex-flow: column;
+}
+
+.choice button {
+	background-color: black;
+	color: var(--color);
+	border: 3px solid var(--color);
+	margin: 5px;
+	font-size: 2em;
+	cursor: pointer;
+}
+
+

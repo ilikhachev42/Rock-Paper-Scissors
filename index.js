@@ -1,4 +1,12 @@
+const info = document.getElementById('info');
+const userPlay = info.firstElementChild.children[0];
+const computerPlay = userPlay.parentElement.nextElementSibling.children[0];
+const roundResult = info.querySelectorAll('.output')[2];
+const userScore = info.querySelectorAll('.output')[3].firstElementChild;
+const computerScore = info.querySelectorAll('.output')[3].lastElementChild;
+const gameResult = info.lastElementChild;
 const figures = ['rock', 'paper', 'scissors'];
+const score = {user: 0, computer: 0};
 
 function getComputerChoice() {
 	let random = figures[Math.floor(Math.random() * figures.length)]
@@ -9,28 +17,32 @@ function playRound(computerSelection, userSelection) {
 	if (userSelection === figures[0] && computerSelection === figures[2] ||
 			userSelection === figures[2] && computerSelection === figures[1] ||
 			userSelection === figures[1] && computerSelection === figures[0]) {
-			console.log(userSelection, computerSelection)
-			return 'You Won!'
+			score.user++
+			return 'You win a round!';
 		} else if (userSelection === figures[0] && computerSelection === figures[1] ||
 							 userSelection === figures[2] && computerSelection === figures[0] ||
 							 userSelection === figures[1] && computerSelection === figures[2]) {
-			console.log(userSelection, computerSelection)
-			return 'You Lost!'
+			score.computer++
+			return 'You lose a round!';
 		} else {
-			console.log(userSelection, computerSelection)
-			return 'It\'s a Tie!'
+			return 'It\'s a tie round!';
 		}
-
-	return userSelection
 }
 
-function game() {
-	for (let i = 1; i <= 5; i++) {
-		const userSelection = prompt()
-		const computerSelection = getComputerChoice()
-		console.log(playRound(computerSelection,userSelection))
+function clickButton(event) {
+	let userSelection = '';
+	const computerSelection = getComputerChoice();
+	
+	userSelection = event.toLowerCase();
+	userPlay.innerText = userSelection.toLowerCase();
+	computerPlay.innerText = computerSelection;
+	roundResult.innerText = playRound(computerSelection, userSelection);
+	userScore.innerText = score.user;
+	computerScore.innerText = score.computer;
+
+	if (userScore.innerText >= 5 && computerScore.innerText < 5) {
+		gameResult.innerText = 'Congratulations, You win!';
+	} else if (userScore.innerText <5 && computerScore.innerText >= 5) {
+		gameResult.innerText = 'Unfortunately, You lost!'
 	}
-	console.log('Finish!')
 }
-
-console.log(game())

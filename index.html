@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<script src=""></script>
+		<script src="index.js" defer></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -12,13 +12,17 @@
 	</head>
 	<body>
 		<div id="content" class="container">
-			<h1>ROCK PAPER SCISSORS</h1>
 			<div id="info" class="info window">
+				<p class="output">You play <span></span>.</p>
+				<p class="output">Computer plays <span></span>.</p>
+				<p class="output"></p>
+				<p class="output">User <span></span> : <span></span> Computer</p>
+				<p class="output"></p>
 			</div>
 			<div id="choice" class="choice window">
-				<button>Rock</button>
-				<button>Paper</button>
-				<button>Scissors</button>
+				<button onclick="clickButton(this.innerHTML)">Rock</button>
+				<button onclick="clickButton(this.innerHTML)">Paper</button>
+				<button onclick="clickButton(this.innerHTML)">Scissors</button>
 			</div>
 		</div>
 	</body>
